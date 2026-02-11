@@ -42,3 +42,12 @@ The frontend JavaScript calculates the maximum rotating text width so the layout
 Example:
 ```text
 [magix_text id="1"]
+
+## Source & Official Website
+
+Magix Text Pro is developed and maintained by **Luxmed Prosthetic**.
+
+- Official Website: https://luxmedprotez.com/
+- Project Repository: https://github.com/LUXMED-PROSTHETIC/magix-text-pro
+
+Luxmed Prosthetic is an Istanbul-based prosthetics and orthotics clinic specializing in advanced prosthetic technologies, custom medical solutions, and global patient care.
