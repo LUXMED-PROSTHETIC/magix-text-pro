@@ -1,0 +1,150 @@
+/**
+ * Magix Text Pro Frontend Stil - Fixed-Width Container Yaklaşımı
+ */
+
+/* Şablon Kutusu - Tüm metinleri içeren ana kapsayıcı */
+.magix-text-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    display: block !important; 
+    overflow: visible !important;
+    box-sizing: border-box !important;
+    clear: both !important;
+    text-align: left !important; /* Varsayılan: Sol */
+}
+
+/* Şablon hizalama sınıfları */
+.magix-text-wrapper.center {
+    text-align: center !important;
+}
+
+.magix-text-wrapper.right {
+    text-align: right !important;
+}
+
+.magix-text-wrapper.left {
+    text-align: left !important;
+}
+
+/* Ana container - Inline-block olarak diğer içeriklerle aynı satırda */
+.magix-text-container {
+    display: inline-block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+}
+
+/* İçerik container - Sabit genişlikte olan şablon */
+.magix-text-content {
+    display: inline-flex !important; /* Flex kullanarak içerikleri yan yana dizeriz */
+    white-space: nowrap !important;
+    overflow: visible !important; 
+    position: relative !important;
+}
+
+/* Sabit metin */
+.magix-text-fixed {
+    display: inline-block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+    order: 1 !important; /* Flex sırasında her zaman ilk */
+}
+
+/* Dönen metin */
+.magix-text-rotating {
+    display: inline-block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important; 
+    vertical-align: middle !important;
+    min-width: 10px !important;
+    min-height: 1em !important;
+    transition: transform 0.3s ease, opacity 0.3s ease !important;
+    transform-origin: center !important;
+    will-change: transform, opacity !important;
+    order: 2 !important; /* Her zaman sabit metinden sonra */
+}
+
+/* Son ek */
+.magix-text-suffix {
+    display: inline-block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+    order: 3 !important; /* Her zaman dönen metinden sonra */
+}
+
+/* Aynalama animasyonu için sınıflar */
+.magix-text-rotating.hiding {
+    opacity: 0 !important;
+    transform: rotateY(90deg) !important; /* Yana doğru dönerek kaybolur */
+}
+
+.magix-text-rotating.showing {
+    opacity: 1 !important;
+    transform: rotateY(0deg) !important; /* Normal pozisyonda görünür */
+}
+
+/* Ayna animasyonu için keyframes */
+@keyframes rotateWord {
+    0% {
+        opacity: 0;
+        transform: rotateY(90deg);
+    }
+    20% {
+        opacity: 1;
+        transform: rotateY(0deg);
+    }
+    80% {
+        opacity: 1;
+        transform: rotateY(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: rotateY(-90deg);
+    }
+}
+
+/* Responsive ayarları - mobilde sıkıntı yaratabilecek özellikleri devre dışı bırak */
+@media only screen and (max-width: 768px) {
+    .magix-text-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Mobilde sorun çıkarabilecek özellikleri sıfırla */
+    .magix-text-container,
+    .magix-text-fixed,
+    .magix-text-suffix,
+    .magix-text-rotating {
+        position: static !important; 
+    }
+}
+
+/* Eski dönen öğe gecikmelerini koruyalım */
+.magix-text-rotating-item:nth-child(2) {
+    animation-delay: 1.2s;
+}
+
+.magix-text-rotating-item:nth-child(3) {
+    animation-delay: 2.4s;
+}
+
+.magix-text-rotating-item:nth-child(4) {
+    animation-delay: 3.6s;
+}
+
+.magix-text-rotating-item:nth-child(5) {
+    animation-delay: 4.8s;
+} 
